@@ -12,7 +12,7 @@ import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import "react-native-reanimated";
 
-import { verifyInstallation } from 'nativewind';
+import { verifyInstallation } from "nativewind";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
 
@@ -37,12 +37,15 @@ export default function RootLayout() {
 
   verifyInstallation();
 
-
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
+        <Stack.Screen
+          name="modal"
+          options={{ headerShown: false, presentation: "modal" }}
+        />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>
